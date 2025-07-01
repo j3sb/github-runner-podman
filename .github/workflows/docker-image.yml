@@ -23,3 +23,6 @@ jobs:
 
       - name: Build image
         run: docker build -t github-runner .
+
+      - name: Publish image
+        run: docker push j3sb/github-runner
