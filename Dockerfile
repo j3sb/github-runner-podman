@@ -40,8 +40,8 @@ COPY start-github-runner.sh start-github-runner.sh
 RUN chmod +x start.sh
 RUN chmod +x start-github-runner.sh
 
-RUN groupadd -g 964 docker2
-RUN usermod -a -G docker2 dock
+#RUN groupadd -g 964 docker2
+RUN usermod -a -G docker dock
 #RUN chown root:docker /var/run/docker.sock
 
 # since the config and run script for actions are not allowed to be run by root,
