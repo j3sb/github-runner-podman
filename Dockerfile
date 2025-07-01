@@ -34,9 +34,11 @@ RUN chown -R dock ~dock && /home/dock/actions-runner/bin/installdependencies.sh
 
 # copy over the start.sh script
 COPY start.sh start.sh
+COPY start-github-runner.sh start-github-runner.sh
 
 # make the script executable
 RUN chmod +x start.sh
+RUN chmod +x start-github-runner.sh
 
 RUN groupadd -g 964 docker2
 RUN usermod -a -G docker2 dock
@@ -44,7 +46,7 @@ RUN usermod -a -G docker2 dock
 
 # since the config and run script for actions are not allowed to be run by root,
 # set the user to "dock" so all subsequent commands are run as the dock user
-USER dock
+#USER dock
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["./start.sh"]
