@@ -1,0 +1,25 @@
+name: Publish Docker image
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+  issues:
+    types:
+      - opened
+
+jobs:
+  push_to_registries:
+    name: Push Docker image to github registry
+    runs-on: self-hosted
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@master
+
+      - name: Build image
+        run: docker build -t github-runner .
