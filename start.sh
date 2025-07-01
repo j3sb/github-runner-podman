@@ -1,10 +1,8 @@
 #!/bin/bash
 
-#ORGANIZATION=$ORGANIZATION
+DOCKER_USERNAME=$DOCKER_USERNAME
+DOCKER_TOKEN=$DOCKER_TOKEN
 URL=$URL
-#ACCESS_TOKEN=$ACCESS_TOKEN
-
-#REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/orgs/${ORGANIZATION}/actions/runners/registration-token | jq .token --raw-output)
 REG_TOKEN=$REG_TOKEN
 
 cd /home/dock/actions-runner
@@ -18,5 +16,8 @@ cleanup() {
 
 trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
+
+
+docker login -u ${DOCKER_USERNAME} -p ${DOCKER_TOKEN}
 
 ./run.sh & wait $!
