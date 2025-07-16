@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build image
-        run: podman build -t j3sb/github-runner .
+        run: podman build -t j3sb/github-runner-podman .
 
       - name: Publish image
-        run: podman push j3sb/github-runner
+        run: podman push j3sb/github-runner-podman
