@@ -2,9 +2,6 @@ FROM debian:latest
 
 ARG RUNNER_VERSION="2.325.0"
 
-# so dns works inside the docker in docker config
-RUN echo "nameserver 1.1.1.1" > /etc/resolv.conf
-
 # Install necessary packages for setting up the Docker repository
 RUN apt update && \
     apt install --no-install-recommends -y ca-certificates curl gnupg dpkg lsb-release
