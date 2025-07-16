@@ -2,8 +2,6 @@
 
 DOCKER_USERNAME=$DOCKER_USERNAME
 DOCKER_TOKEN=$DOCKER_TOKEN
-#URL=$URL
-#REG_TOKEN=$REG_TOKEN
 ORGANIZATION=$ORGANIZATION
 ACCESS_TOKEN=$ACCESS_TOKEN
 
@@ -15,7 +13,7 @@ cd /home/podman/actions-runner
 
 cleanup() {
     echo "Removing runner..."
-    ./config.sh remove --unattended --token ${REG_TOKEN}
+    ./config.sh remove --token ${REG_TOKEN}
 }
 
 trap 'cleanup; exit 130' INT
