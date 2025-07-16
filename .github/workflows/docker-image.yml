@@ -25,4 +25,4 @@ jobs:
         run: podman build -t j3sb/github-runner-podman .
 
       - name: Publish image
-        run: podman push j3sb/github-runner-podman
+        run: podman push github-runner-podman j3sb/github-runner-podman
