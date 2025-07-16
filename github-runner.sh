@@ -20,6 +20,6 @@ trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
 
 
-podman login -u ${DOCKER_USERNAME} -p ${DOCKER_TOKEN}
+podman login -u ${DOCKER_USERNAME} -p ${DOCKER_TOKEN} docker.io
 
 ./run.sh & wait $!
