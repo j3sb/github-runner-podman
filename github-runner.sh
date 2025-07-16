@@ -11,7 +11,7 @@ REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.
 
 cd /home/podman/actions-runner
 
-./config.sh --unattended --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}
+./config.sh --unattended --runnergroup podman --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}
 
 cleanup() {
     echo "Removing runner..."
